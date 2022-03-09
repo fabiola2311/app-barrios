@@ -1,10 +1,12 @@
 import React from 'react'
+import CartWidget from '../CartWidget/CartWidget'
+import './Navbar.css';
 
 const Navbar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-blue">
-        <div className="container-fluid">
+        <div className="container-fluid ms-5 me-5">
           <img src={"./logotipo.png"} className="logotipo"/>
           <a className="navbar-brand" href="#">Eureka</a>
           <button className="navbar-toggler" type="but ton" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,6 +25,7 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
+          <CartWidget/>
         </div>
       </nav>
     </div>
