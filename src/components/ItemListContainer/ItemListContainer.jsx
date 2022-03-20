@@ -5,7 +5,7 @@ import './ItemListContainer.css';
 
 function ItemListContainer({ greeting }) {
 
-    const [prod, setProd] = useState()
+    const [prod, setProd] = useState([])
 
     const productos = [
         { id: 1, categoria: 'servicios', nombre: 'consultoria', precio: 800 },
@@ -32,15 +32,10 @@ function ItemListContainer({ greeting }) {
 
     }, [])
 
-
-
-
-
-
     return (
         <>
             <h1>{greeting}</h1>
-            <ItemList productos={prod} />
+            <ItemList listadoDeProductos={prod} />
         </>
 
 
