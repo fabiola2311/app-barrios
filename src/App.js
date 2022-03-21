@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemCount from './components/ItemCount/ItemCount';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
     <div className="App">
       <Navbar/>
       <ItemListContainer greeting='Hola somos Eureka'/>
+      <ItemDetailContainer/>
     </div>
       
         
