@@ -12,8 +12,6 @@ function ItemList({ listadoDeProductos }) {
       {
       
       listadoDeProductos.map((valor) => <Item item={valor}/>)}
-      <ItemCount stock={5} initial={5} onAdd={(number) => {alert(number)}}/>
-      <ItemCount stock={5} initial={5} onAdd={(number) => {alert("Hola la compra es:" + number)}}/>
 
   
     </div>
