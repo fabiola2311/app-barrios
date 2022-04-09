@@ -24,7 +24,7 @@ function App() {
 
             <Route path='detalle/:detalleId' element={<ItemDetailContainer />} />
             <Route path='categoria/:categoria' element={<ItemListContainer />} />
-            <Route path='cart' element={<Cart />} />
+            <Route path='cart' element={<Cart />} />´
             <Route path='/*' element={<Navigate to='/' />} />
           </Routes>
         </CartContextProvider>

@@ -9,14 +9,8 @@ export const useCartContext = () => useContext(CartContext)
 function CartContextProvider({ children }) {
     const [cartList, setCartList] = useState([])
 
-    function addItem(e,item, quantity) {
-        if (isInCart(item.id)) {
-            e.preventDefault()
-            alert("Ya existe el producto en el carrito")
-        }
-        else {
-            setCartList([ ...cartList, { item: item, quantity: quantity }])
-        }
+    function addItem(item, quantity) {
+        setCartList([...cartList, { item: item, quantity: quantity }])
     }
 
     function removeItem(itemId) {
@@ -33,7 +27,6 @@ function CartContextProvider({ children }) {
     }
 
     function isInCart(itemId) {
-        
         if (cartList.some(producto => producto.item.id == itemId)) {
             return true
         }
