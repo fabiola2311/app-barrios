@@ -3,36 +3,27 @@ import { useCartContext } from '../../contexts/CartContext';
 import './CartWidget.css';
 
 function CartWidget() {
-
     const { cartList } = useCartContext()
-    const [cantidad, setCantidad] = useState(0)
-    
-    let contar = 0
-    cartList.map(valor => {
-        contar = contar + valor.quantity
+    const [quantity, setQuantity] = useState(0)
 
+    let count = 0
+    cartList.map(value => {
+        count = count + value.quantity
     })
 
-    useEffect(()=>{
-        setCantidad(contar)
+    useEffect(() => {
+        setQuantity(count)
     })
-
-    
 
     return (
+        cartList.length == 0 ?
+            <></>
+            :
+            <>
+                <span className="material-icons-round color size">shopping_cart</span>
+                <p>{quantity} </p>
 
-        cartList.length == 0?
-        <></>
-        :
-        <>
-            <span className="material-icons-round color size">
-                shopping_cart
-            </span>
-            <p>{cantidad} </p>
-
-        </>
-
-
+            </>
     )
 }
 

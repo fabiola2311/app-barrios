@@ -1,9 +1,6 @@
-
 import React, { createContext, useContext, useState } from 'react'
+
 const CartContext = createContext()
-
-
-
 export const useCartContext = () => useContext(CartContext)
 
 function CartContextProvider({ children }) {
@@ -14,20 +11,35 @@ function CartContextProvider({ children }) {
     }
 
     function removeItem(itemId) {
-        const arrayFiltrado = cartList.filter((producto) => {
-            if (producto.item.id != itemId) {
-                return producto
+        const arrayFilter = cartList.filter((product) => {
+            return product.item.id !== itemId
+        })
+        setCartList(arrayFilter)
+    }
+
+    function changeItem(item, quantity) {
+        const itemId = item.id
+        let arrayFilter = []
+        cartList.forEach((product) => {
+
+            if (product.item.id !== itemId) {
+                arrayFilter = [...arrayFilter, product]
+            }
+            else {
+                const newProduct = { "item": product.item, "quantity": quantity }
+                arrayFilter = [...arrayFilter, newProduct]
             }
         })
-        setCartList(arrayFiltrado)
+        setCartList(arrayFilter)
     }
+
 
     function clear() {
         setCartList([])
     }
 
     function isInCart(itemId) {
-        if (cartList.some(producto => producto.item.id == itemId)) {
+        if (cartList.some(product => product.item.id === itemId)) {
             return true
         }
         else {
@@ -35,14 +47,15 @@ function CartContextProvider({ children }) {
         }
     }
 
-
     return (
         <CartContext.Provider value={{
             cartList,
             addItem,
             removeItem,
             clear,
-            isInCart
+            isInCart,
+            changeItem
+
         }}>
             {children}
         </CartContext.Provider>

@@ -1,4 +1,4 @@
-.logotipo {
+.logo {
     width: 100px;
     height: 100px;
 }
@@ -9,4 +9,10 @@
 
 .underline {
     text-decoration: none;
+}
+
+.logoImagen{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
